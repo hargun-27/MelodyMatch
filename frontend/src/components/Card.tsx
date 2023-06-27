@@ -4,12 +4,13 @@ import TEST_IAMGE from "../images/test.jpg";
 interface Songs {
   name: string;
   author: string;
+  coverImage: string;
 }
 
 const Card = () => {
   const EXAMPLEDATA = [
-    { name: "song1", author: "author1" },
-    { name: "song2", author: "author2" },
+    { name: "Starface*", author: "Jean Dawson", coverImage: TEST_IAMGE },
+    { name: "雪 distance", author: "capper", coverImage: TEST_IAMGE },
   ];
 
   const [songs, setSongs] = useState<Songs[]>(EXAMPLEDATA);
@@ -18,8 +19,15 @@ const Card = () => {
     <div className=''>
       {songs.map((song) => (
         <div className='mb-4'>
-          <div className='w-[550px] p-[6px] resize-none rounded-[25px] border border-gray-300'>
-            <img src={TEST_IAMGE} alt={song.name} className='rounded-[25px]' />
+          <div className='w-[500px] p-[6px] resize-none rounded-[25px] border border-gray-300'>
+            <img src={song.coverImage} alt={song.name} className='rounded-[25px]' />
+            <div className='mt-[17px] mb-[15px] flex items-start justify-between'>
+              <div className='ml-[22px]'>
+                <p className='font-bold underline text-[17px]'>{song.name}</p>
+                <p className='font-bold'>{song.author}</p>
+              </div>
+              <button className='mr-[22px] text-sm'>Button</button>
+            </div>
           </div>
         </div>
       ))}
