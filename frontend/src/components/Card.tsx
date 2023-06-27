@@ -1,38 +1,38 @@
-import React, { useState } from "react";
-import TEST_IAMGE from "../images/test.jpg";
+import React from "react";
+import Button from "./Button";
 
-interface Songs {
+interface Song {
   name: string;
   author: string;
   coverImage: string;
 }
 
-const Card = () => {
-  const EXAMPLEDATA = [
-    { name: "Starface*", author: "Jean Dawson", coverImage: TEST_IAMGE },
-    { name: "雪 distance", author: "capper", coverImage: TEST_IAMGE },
-  ];
+interface CardProps {
+  song: Song;
+}
 
-  const [songs, setSongs] = useState<Songs[]>(EXAMPLEDATA);
+const Card: React.FC<CardProps> = ({ song }) => {
+  const handleClick = () => {
+    console.log("Button clicked");
+  };
 
   return (
-    <div className=''>
-      {songs.map((song) => (
-        <div className='mb-4'>
-          <div className='w-[500px] p-[6px] resize-none rounded-[25px] border border-gray-300'>
-            <img src={song.coverImage} alt={song.name} className='rounded-[25px]' />
-            <div className='mt-[17px] mb-[15px] flex items-start justify-between'>
-              <div className='ml-[22px]'>
-                <p className='font-bold underline text-[17px]'>{song.name}</p>
-                <p className='font-bold'>{song.author}</p>
-              </div>
-              <button className='mr-[22px] text-sm'>Button</button>
+    <div className="">
+      <div className="mb-4">
+        <div className="w-[500px] p-[6px] resize-none rounded-[25px] border border-gray-300 bg-black">
+          <img src={song.coverImage} alt={song.name} className="rounded-[25px]" />
+          <div className="mt-[17px] mb-[15px] flex items-start justify-between text-white">
+            <div className="ml-[22px]">
+              <p className="font-bold underline text-[17px]">{song.name}</p>
+              <p className="font-bold">{song.author}</p>
             </div>
+            <Button onClick={handleClick} className="mr-[22px] text-sm">Button</Button>
           </div>
         </div>
-      ))}
+      </div>
     </div>
   );
 };
 
 export default Card;
+export type {Song};
