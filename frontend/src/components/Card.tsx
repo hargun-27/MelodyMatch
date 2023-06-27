@@ -23,10 +23,10 @@ const Card: React.FC<CardProps> = ({ song }) => {
           <img src={song.coverImage} alt={song.name} className="rounded-[30px]" />
           <div className="mt-[17px] mb-[15px] flex items-start justify-between text-white">
             <div className="ml-[22px]">
-              <p className="font-bold underline text-[17px] text-black">{song.name}</p>
-              <p className="font-bold text-black">{song.author}</p>
+              <p className="font-bold underline text-[24px] text-black">{song.name}</p>
+              <p className="font-bold text-black text-[20px]">{song.author}</p>
             </div>
-            <Button onClick={handleClick} className="mr-[22px] text-sm !bg-spotifyBlack text-white hover:!bg-spotifyBlackSecondary">Button</Button>
+            <Button onClick={handleClick} className="text-sm !bg-spotifyBlack text-white hover:!bg-spotifyBlackSecondary">Button</Button>
           </div>
         </div>
       </div>

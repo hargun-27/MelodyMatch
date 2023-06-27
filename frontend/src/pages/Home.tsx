@@ -50,7 +50,7 @@ const Home = () => {
           </p>
           <Button
             onClick={HandleLogin}
-            className="max-w-sm bg-white text-spotifyBlack font-bold py-2 px-4 rounded-xl hover:bg-slate-200"
+            className="max-w-sm bg-white text-spotifyBlack text-lg font-bold py-2 px-8 rounded-xl hover:bg-slate-200"
           >
             Log in to <span className="text-spotifyGreen">Spotify</span>
           </Button>
