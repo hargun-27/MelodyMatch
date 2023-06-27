@@ -1,11 +1,23 @@
-export async function redirectToAuthCodeFlow(clientId: string) {
+declare var process : {
+  env: {
+    SPOTIFY_CLIENT_ID: string;
+    SPOTIFY_CLIENT_SECRET: string;
+    NODE_ENV: string
+  }
+}
+
+// const client_id = process.env.SPOTIFY_CLIENT_ID;
+const client_id = 'ef0a7468438c4842bb8b6aefb9694e42';
+const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
+
+export async function redirectToAuthCodeFlow() {
   const verifier = generateCodeVerifier(128);
   const challenge = await generateCodeChallenge(verifier);
 
   localStorage.setItem("verifier", verifier);
 
   const params = new URLSearchParams();
-  params.append("client_id", clientId);
+  params.append("client_id", client_id);
   params.append("response_type", "code");
   params.append("redirect_uri", "http://localhost:3000");
   params.append("scope", "user-read-private user-read-email");
@@ -34,11 +46,12 @@ async function generateCodeChallenge(codeVerifier: string) {
     .replace(/=+$/, '');
 }
 
-export async function getAccessToken(clientId: string, code: string) {
+export async function getAccessToken(code: string) {
+
   const verifier = localStorage.getItem("verifier");
 
   const params = new URLSearchParams();
-  params.append("client_id", clientId);
+  params.append("client_id", client_id);
   params.append("grant_type", "authorization_code");
   params.append("code", code);
   params.append("redirect_uri", "http://localhost:3000");
@@ -60,7 +73,4 @@ export async function fetchProfile(token: string): Promise<any> {
   });
 
   return await result.json();
-}
-
-function populateUI(profile: any) {
 }

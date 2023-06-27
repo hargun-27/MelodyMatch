@@ -1,16 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { redirectToAuthCodeFlow, getAccessToken, fetchProfile } from "../components/Login";
 
 const Home = () => {
-  const clientId = "ef0a7468438c4842bb8b6aefb9694e42";
-  const params = new URLSearchParams(window.location.search);
-  const code = params.get("code");
+  const params = new URLSearchParams(window.location.search)
+  const [code, setCode] = useState(params.get("code"));
 
+  
   useEffect(() => {
-    redirectToAuthCodeFlow(clientId);
-    const accessToken = await getAccessToken(clientId, code);
-    const profile = await fetchProfile(accessToken);
-  });
+    if (!code) {
+      redirectToAuthCodeFlow();
+      setCode(params.get("code"));
+    } else {
+      alert("Logged in");
+      const accessToken = getAccessToken(code);
+    }
+  }, [code]);
+
 
   return (
     <>
