@@ -4,11 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-      spotifyBlack: 'rgb(25, 20, 20)', 
-      spotifyGreen: '#1DB954', 
-      customBlue: "#rgb(0, 0, 255)",
+        spotifyBlack: "rgb(25, 20, 20)",
+        spotifyGreen: "#1DB954",
+        customBlue: "#rgb(0, 0, 255)",
+      },
     },
-  },
   },
   plugins: [],
 };
