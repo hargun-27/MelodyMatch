@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TEST_IAMGE from "../images/test.jpg";
 
 interface Songs {
   name: string;
@@ -16,7 +17,11 @@ const Card = () => {
   return (
     <div className=''>
       {songs.map((song) => (
-        <div>{song.name}</div>
+        <div className='mb-4'>
+          <div className='w-[550px] p-[6px] resize-none rounded-[25px] border border-gray-300'>
+            <img src={TEST_IAMGE} alt={song.name} className='rounded-[25px]' />
+          </div>
+        </div>
       ))}
     </div>
   );
