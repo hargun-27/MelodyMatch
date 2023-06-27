@@ -11,12 +11,16 @@ const Home = () => {
   return (
     <>
     <NavBar />
-      <h1>Discover your perfect soundtrack. Scroll your way to music bliss with MusicMatch</h1>
-      <p>
-        Personalized recommendations await as you embark on a journey to find your next favorite song. Log in NOW and unlock a world of musical possibilities.
-      </p>
-      {/* <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Log in to Spotify</button> */}
-      <Button onClick={handleLogIn}>Log in to Spotify</Button>
+    <div className="content">
+      <div className="left-element">
+
+      </div>
+      <div className="right-element">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae tortor id justo fringilla fermentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris non nunc vitae enim tincidunt lacinia. Fusce in fringilla sapien, sit amet varius sapien.</p>
+        <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Log in to Spotify</button>
+      </div>
+    </div>
+      
     </>
   );
 };
