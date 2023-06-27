@@ -4,8 +4,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        spotifyBlack: "rgb(25, 20, 20)",
+        spotifyBlack: "#121212",
+        spotifyBlackSecondary: "#212121",
         spotifyGreen: "#1DB954",
+        spotifyGrey: "#535353",
         customBlue: "#rgb(0, 0, 255)",
       },
     },

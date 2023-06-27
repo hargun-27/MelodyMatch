@@ -26,7 +26,7 @@ const Card: React.FC<CardProps> = ({ song }) => {
               <p className="font-bold underline text-[17px] text-black">{song.name}</p>
               <p className="font-bold text-black">{song.author}</p>
             </div>
-            <Button onClick={handleClick} className="mr-[22px] text-sm bg-spotifyBlack text-white">Button</Button>
+            <Button onClick={handleClick} className="mr-[22px] text-sm !bg-spotifyBlack text-white hover:!bg-spotifyBlackSecondary">Button</Button>
           </div>
         </div>
       </div>
