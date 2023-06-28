@@ -28,8 +28,6 @@ const Carousel: React.FC<CarouselProps> = ({ songs }) => {
           const opacity = position === 0 ? 1 : 0.5;
           
           // Calculate scale based on position
-          // const scale = Math.pow(1.2, -Math.abs(position));
-          
           const scale = 1;
 
           // Calculate z-index based on position
