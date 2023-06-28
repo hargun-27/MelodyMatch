@@ -18,7 +18,7 @@ const Home = () => {
     { name: "Graduation", author: "Kanye", coverImage: IMAGE1 },
     { name: "Sweetener", author: "Arianna Grande", coverImage: IMAGE2 },
     { name: "Blond", author: "Frank Ocean", coverImage: IMAGE3 },
-    { name: "Ballads 1", author: "Joji", coverImage: IMAGE4 },
+    { name: "Nectar", author: "Joji", coverImage: IMAGE4 },
     { name: "Pixel Bath", author: "Jean Dawson", coverImage: IMAGE5 },
   ];
 
@@ -36,7 +36,7 @@ const Home = () => {
     <>
       <NavBar />
       <div className="content">
-        <div className="left-element absolute left-0 w-3/5 h-[calc(100vh-60px)] overflow-hidden bg-black flex flex-col items-center justify-center bg-black pb-40 pl-20">
+        <div className="left-element absolute left-0 w-3/5 h-[calc(100vh-60px)] overflow-hidden bg-black flex flex-col items-center justify-center bg-black pb-40">
           <Carousel songs={DATA} />
         </div>
         <div className="right-element absolute right-0 w-2/5 h-[calc(100vh-60px)] overflow-hidden bg-black flex flex-col items-center justify-center pr-10">
