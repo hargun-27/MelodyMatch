@@ -9,6 +9,7 @@ declare var process : {
 // const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_id = 'ef0a7468438c4842bb8b6aefb9694e42';
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
+const redirect_uri = "http://localhost:3000/profile";
 
 export async function redirectToAuthCodeFlow() {
   const verifier = generateCodeVerifier(128);
@@ -19,7 +20,7 @@ export async function redirectToAuthCodeFlow() {
   const params = new URLSearchParams();
   params.append("client_id", client_id);
   params.append("response_type", "code");
-  params.append("redirect_uri", "http://localhost:3000");
+  params.append("redirect_uri", redirect_uri);
   params.append("scope", "user-read-private user-read-email");
   params.append("code_challenge_method", "S256");
   params.append("code_challenge", challenge);
@@ -54,7 +55,7 @@ export async function getAccessToken(code: string) {
   params.append("client_id", client_id);
   params.append("grant_type", "authorization_code");
   params.append("code", code);
-  params.append("redirect_uri", "http://localhost:3000");
+  params.append("redirect_uri", redirect_uri);
   params.append("code_verifier", verifier!);
 
   const result = await fetch("https://accounts.spotify.com/api/token", {
