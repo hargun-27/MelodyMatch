@@ -22,15 +22,13 @@ const Carousel: React.FC<CarouselProps> = ({ songs }) => {
       <AnimatePresence initial={false} custom={currentIndex}>
         {songs.map((song, index) => {
           const position = (index - currentIndex + songs.length) % songs.length;
-          const x = (position - Math.floor(songs.length / 2)) * -(30 + 40);
+          const x = (position - Math.floor(songs.length / 2)) * -(30 + Math.pow(1.2, -Math.abs(position)) * 40);
           
           // Calculate opacity based on position
           const opacity = position === 0 ? 1 : 0.5;
           
           // Calculate scale based on position
-          // const scale = Math.pow(1.2, -Math.abs(position));
-          
-          const scale = 1;
+          const scale = Math.pow(1.3, -Math.abs(position));
 
           // Calculate z-index based on position
           const zIndex = songs.length - position;
