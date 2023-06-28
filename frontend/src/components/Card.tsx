@@ -19,7 +19,7 @@ const Card: React.FC<CardProps> = ({ song }) => {
   return (
     <div className="">
       <div className="mb-4">
-        <div className="w-[500px] p-[6px] resize-none rounded-[30px] border border-white-300 bg-white">
+        <div className="shadow-custom w-[500px] p-[6px] resize-none rounded-[30px] border border-white-300 bg-white">
           <img src={song.coverImage} alt={song.name} className="rounded-[30px]" />
           <div className="mt-[17px] mb-[15px] flex items-start justify-between text-white">
             <div className="ml-[22px]">

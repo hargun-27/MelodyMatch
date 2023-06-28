@@ -10,6 +10,9 @@ module.exports = {
         spotifyGrey: "#535353",
         customBlue: "#rgb(0, 0, 255)",
       },
+      boxShadow: {
+        'custom': '0px 20px 99px 30px rgba(0, 0, 0, 0.40)',
+      },
     },
   },
   plugins: [],
