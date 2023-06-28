@@ -16,7 +16,7 @@ const Home = () => {
   const [code, setCode] = useState(params.get("code"));
   const DATA = [
     { name: "Graduation", author: "Kanye", coverImage: IMAGE1 },
-    { name: "Sweetner", author: "Arianna Grande", coverImage: IMAGE2 },
+    { name: "Sweetener", author: "Arianna Grande", coverImage: IMAGE2 },
     { name: "Blond", author: "Frank Ocean", coverImage: IMAGE3 },
     { name: "Ballads 1", author: "Joji", coverImage: IMAGE4 },
     { name: "Pixel Bath", author: "Jean Dawson", coverImage: IMAGE5 },
