@@ -1,9 +1,37 @@
 import React from 'react';
+import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
+import { styled } from '@mui/material/styles';
 
 interface FilterCardProps {
   title: string;
   description: string;
 }
+
+const FilterSlider = styled(Slider)({
+  color: '#D9D9D9',
+  width: '85%',
+  height: 20,
+  '& .MuiSlider-track': {
+    border: 'none',
+  },
+  '& .MuiSlider-thumb': {
+    height: 42,
+    width: 42,
+    backgroundColor: '#1DB954',
+    '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
+      boxShadow: 'inherit',
+    },
+    '&:before': {
+      display: 'none',
+    },
+  },
+  '& .MuiSlider-valueLabel': {
+    lineHeight: 1.5,
+    fontSize: 25,
+    background: 'unset',
+    padding: 0,
+  },
+});
 
 const FilterCard: React.FC<FilterCardProps> = ({ title, description }) => {
   return (
@@ -12,11 +40,10 @@ const FilterCard: React.FC<FilterCardProps> = ({ title, description }) => {
         <h1 className="text-white text-2xl font-bold mb-2 text-[48px] text-center">{title}</h1>
         <p className="text-white mb-2 text-[32px] leading-8 text-center">{description}</p>
         <div className="flex justify-center">
-          <input
-            type="range"
-            min="0"
-            max="100"
-            className="w-4/5 appearance-none cursor-pointer bg-gray-300 h-5 rounded-full overflow-hidden [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-[40px] [&::-webkit-slider-thumb]:w-[40px] [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-spotifyGreen"
+          <FilterSlider
+            defaultValue={0}
+            aria-label="Always visible"
+            valueLabelDisplay="on"
           />
         </div>
       </div>
