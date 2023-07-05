@@ -1,0 +1,53 @@
+.carousel {
+  .control-dots {
+    bottom: 80px;
+
+    .dot {
+      width: 20px;
+      height: 20px;
+      background: #535353;
+      box-shadow: none;
+
+      .selected {
+        width: 20px;
+        height: 20px;
+        background: #969292;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .control-next.control-arrow {
+    right: 30%;
+  }
+
+  .control-next.control-arrow:before {
+    border: none;
+    background: url('../images/arrow-right-solid.svg'), lightgray 50% / cover no-repeat;
+  }
+
+  .control-prev.control-arrow {
+    left: 30%;
+  }
+
+  .control-prev.control-arrow:before {
+    border: none;
+    background: url('../images/arrow-left-solid.svg'), rgb(0, 0, 0) 50% / cover no-repeat;
+  }
+}
+
+.carousel.carousel-slider {
+  .control-arrow {
+    width: 55px;
+    height: 55px;
+    padding: 0;
+    background: #121212;
+    top: 85%;
+    border-radius: 50%;
+    opacity: 1;
+  }
+
+  .control-arrow:hover {
+    background: #535353;
+  }
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import FilterCard from './FilterCard';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import '../components/filtercarousel.css';
 
 interface FilterCard {
   title: string;
@@ -14,7 +15,7 @@ interface FilterCarouselProps {
 
 const FilterCarousel: React.FC<FilterCarouselProps> = ({ filterCards }) => {
   return (
-    <Carousel showArrows={true} infiniteLoop={true} showThumbs={false}>
+    <Carousel showArrows={true} infiniteLoop={true} showThumbs={false} transitionTime={1000} showStatus={false}>
       {filterCards.map((card, index) => (
         <div key={index}>
           <FilterCard
