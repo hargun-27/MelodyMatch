@@ -28,6 +28,9 @@ export async function redirectToAuthCodeFlow() {
   document.location = `https://accounts.spotify.com/authorize?${params.toString()}`;
 }
 
+// The PKCE authorization flow starts with the creation of a code verifier.
+// According to the PKCE standard, a code verifier is a high-entropy cryptographic random string with a length between 43 and 128 characters. 
+// It can contain letters, digits, underscores, periods, hyphens, or tildes.
 function generateCodeVerifier(length: number) {
   let text = '';
   let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -38,6 +41,7 @@ function generateCodeVerifier(length: number) {
   return text;
 }
 
+// Once the code verifier has been generated, we must transform (hash) it using the SHA256 algorithm. This is the value that will be sent within the user authorization request.
 async function generateCodeChallenge(codeVerifier: string) {
   const data = new TextEncoder().encode(codeVerifier);
   const digest = await window.crypto.subtle.digest('SHA-256', data);
