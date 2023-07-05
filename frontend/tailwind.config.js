@@ -8,7 +8,10 @@ module.exports = {
         spotifyBlackSecondary: "#212121",
         spotifyGreen: "#1DB954",
         spotifyGrey: "#535353",
-        customBlue: "#rgb(0, 0, 255)",
+        spotifyWhite: "#F5F5F7",
+      },
+      boxShadow: {
+        'custom': '0px 20px 99px 30px rgba(0, 0, 0, 0.40)',
       },
     },
   },
