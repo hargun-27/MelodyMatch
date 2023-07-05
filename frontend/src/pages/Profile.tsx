@@ -7,6 +7,7 @@ import {
 import { set } from "react-hook-form";
 import { get } from "http";
 import FilterCarousel from "../components/FilterCarousel";
+import { getRandomRecommendation } from "../api/api";
 
 interface Image {
   url: string;
@@ -53,6 +54,11 @@ const Profile = () => {
         //call fetchProfile method in login.ts to get profile
         const profile = await fetchProfile(localtoken);
         setProfile(profile);
+
+        const rec = await getRandomRecommendation(localtoken);
+
+        console.log(rec);
+        
 
         console.log("Profile:", profile);
         console.log(profile.images[0]);
