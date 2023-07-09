@@ -7,6 +7,7 @@ import {
 import { set } from "react-hook-form";
 import { get } from "http";
 import FilterCarousel from "../components/FilterCarousel";
+import Button from "../components/Button";
 import { getRandomRecommendation } from "../api/api";
 
 interface Image {
@@ -58,7 +59,7 @@ const Profile = () => {
         const rec = await getRandomRecommendation(localtoken);
 
         console.log(rec);
-        
+
 
         console.log("Profile:", profile);
         console.log(profile.images[0]);
@@ -67,24 +68,23 @@ const Profile = () => {
     fetchData();
   }, []);
 
+  const HandleLogin = () => {
+    console.log("Pressed");
+  }
+
   return (
     <div>
-      <div className="flex items-center justify-center">
-        <div className="bg-white p-6">
-          <div>
-            <div className="flex items-center bg-gray-200 p-4">
-              <img
-                className="w-12 h-12 rounded-full mr-4"
-                src={profile.images[0].url}
-                alt="Profile"
-              />
-              <h2 className="text-lg font-semibold">{profile.display_name}</h2>
-            </div>
-            <div>
-              <strong>id:</strong> {profile.id}
-            </div>
-            <div>
-              <strong>Tier:</strong> {profile.product}
+      <div className="p-6 w-screen">
+        <div className="flex items-center bg-transparent p-4">
+          <img
+            className="w-20 h-20 rounded-full mr-4"
+            src={profile.images[0].url}
+            alt="Profile"
+          />
+          <div className="text-left">
+            <p className="font-bold text-3xl capitalize pb-2">{`${profile.display_name}'s Profile`}</p>
+            <div className="flex text-xl">
+              <p>You've listened to <strong>#</strong> songs from the 80 million songs on Spotify</p>
             </div>
           </div>
         </div>
@@ -94,43 +94,51 @@ const Profile = () => {
           [
             {
               title: "Acousticness",
-              description: "A confidence measure from 0 to 100 of whether the track is acoustic. 100 represents high confidence the track is acoustic"
+              description: "The acoustic nature of the track from a scale of 0 - 100. A value of 100 represents high confidence in its acoustic classification."
             },
             {
               title: "Liveness",
-              description: "Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live"
+              description: "The liveness value detects the presence of an audience, with higher values indicating a greater likelihood of a live performance."
             },
             {
               title: "Danceability",
-              description: "How suitable a track is for dancing. A value of 0 is least danceable and 100 is most danceable 0 - 100"
+              description: "The danceability score rates a track's suitability for dancing on a scale from 0 (least danceable) to 100 (most danceable)."
             },
             {
               title: "Instrumentalness",
-              description: "Predicts whether a track contains no vocals"
+              description: "Predicts whether a track contains no vocals. Higher instrumentalness values indicate a greater likelihood of instrumental tracks with minimal or no vocals."
             },
             {
               title: "Energy Level",
-              description: "Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity"
+              description: "Energy is a perceptual measure of intensity and activity, where higher values indicate tracks that are typically fast, loud, and noisy."
             },
             {
               title: "Valence",
-              description: "A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track"
+              description: "A measure describing the musical positiveness conveyed by a track. The higher the value, the more positive the song."
             },
             {
               title: "Loudness",
-              description: "The overall loudness of a track in decibels (dB)"
+              description: "The overall loudness of a track in decibels (dB)."
             },
             {
               title: "BPM",
-              description: "The overall estimated tempo of a track in beats per minute (BPM)"
+              description: "The overall estimated tempo of a track in beats per minute (BPM)."
             },
             {
               title: "Speechiness",
-              description: "Speechiness detects the presence of spoken words in a track"
+              description: "Speechiness identifies the presence of spoken words in a track, with higher values indicating more speech-like elements."
             },
           ]
         }
         />
+      </div>
+      <div className="flex items-center justify-center">
+        <Button
+          onClick={HandleLogin}
+          className="max-w-sm !bg-spotifyBlack text-spotifyWhite text-[24px] font-bold px-12 rounded-xl hover:!bg-spotifyBlackSecondary"
+        >
+          Generate <span className="text-spotifyGreen">Now</span>
+        </Button>
       </div>
     </div>
   );

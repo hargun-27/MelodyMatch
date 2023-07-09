@@ -1,53 +1,66 @@
-.carousel {
-  .control-dots {
-    bottom: 80px;
-
-    .dot {
-      width: 20px;
-      height: 20px;
-      background: #535353;
-      box-shadow: none;
-
-      .selected {
-        width: 20px;
-        height: 20px;
-        background: #969292;
-        box-shadow: none;
-      }
-    }
-  }
-
-  .control-next.control-arrow {
-    right: 30%;
-  }
-
-  .control-next.control-arrow:before {
-    border: none;
-    background: url('../images/arrow-right-solid.svg'), lightgray 50% / cover no-repeat;
-  }
-
-  .control-prev.control-arrow {
-    left: 30%;
-  }
-
-  .control-prev.control-arrow:before {
-    border: none;
-    background: url('../images/arrow-left-solid.svg'), rgb(0, 0, 0) 50% / cover no-repeat;
-  }
+.carousel .control-dots {
+  bottom: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.carousel.carousel-slider {
-  .control-arrow {
-    width: 55px;
-    height: 55px;
-    padding: 0;
-    background: #121212;
-    top: 85%;
-    border-radius: 50%;
-    opacity: 1;
-  }
+.carousel .control-dots .dot {
+  width: 20px;
+  height: 20px;
+  background: #535353;
+  box-shadow: none;
+  margin-right: 14px;
+  margin-left: 14px;
+}
 
-  .control-arrow:hover {
-    background: #535353;
-  }
+.carousel .control-dots .dot.selected {
+  width: 28px;
+  height: 28px;
+  background: #969292;
+  box-shadow: none;
+}
+
+.carousel .control-next.control-arrow {
+  right: calc(50% - 310px);
+}
+
+.carousel .control-next.control-arrow:before {
+  border: none;
+  background-image: url('../images/arrow-right-solid.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 30px;
+  height: 30px;
+}
+
+.carousel .control-prev.control-arrow {
+  left: calc(50% - 310px);
+}
+
+.carousel .control-prev.control-arrow:before {
+  border: none;
+  background: url('../images/arrow-left-solid.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 30px;
+  height: 30px;
+}
+
+.carousel.carousel-slider .control-arrow {
+  width: 55px;
+  height: 55px;
+  padding: 0;
+  background: #121212;
+  top: 83%;
+  border-radius: 50%;
+  opacity: 1;
+  line-height: normal;
+  font-size: 0;
+}
+
+.carousel.carousel-slider .control-arrow:hover {
+  background: #535353;
 }

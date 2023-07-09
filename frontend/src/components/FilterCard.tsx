@@ -35,8 +35,8 @@ const FilterSlider = styled(Slider)({
 
 const FilterCard: React.FC<FilterCardProps> = ({ title, description }) => {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="w-[800px] h-[600px] bg-black p-4 flex flex-col rounded-2xl justify-evenly">
+    <div className="flex justify-center items-center">
+      <div className="w-[700px] h-[500px] bg-black p-4 flex flex-col rounded-2xl justify-evenly mb-36 mt-5">
         <h1 className="text-white text-2xl font-bold mb-2 text-[48px] text-center">{title}</h1>
         <p className="text-white mb-2 text-[32px] leading-8 text-center">{description}</p>
         <div className="flex justify-center">
