@@ -1,5 +1,5 @@
 import React from 'react';
-import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
+import Slider from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 
 interface FilterCardProps {
@@ -31,6 +31,9 @@ const FilterSlider = styled(Slider)({
     fontSize: 25,
     background: 'unset',
     padding: 0,
+  },
+  '& .MuiSlider-mark': {
+    width: 0,
   },
 });
 
@@ -76,7 +79,7 @@ const FilterCard: React.FC<FilterCardProps> = ({ title, description, sliderRange
             <FilterSlider
               defaultValue={0}
               aria-label="Always visible"
-              valueLabelDisplay="auto"
+              valueLabelDisplay="on"
               step={10}
               min={0}
               max={100}
