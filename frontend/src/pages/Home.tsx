@@ -36,7 +36,7 @@ const Home = () => {
     <>
       <NavBar />
       <div className="content">
-        <div className="left-element absolute left-0 w-3/5 h-[calc(100vh-60px)] overflow-hidden bg-spotifyBlack flex flex-col items-center justify-center bg-spotifyBlack pb-40">
+        <div className="left-element absolute left-0 w-3/5 h-[calc(100vh-60px)] overflow-hidden bg-spotifyBlack flex flex-col items-center justify-center pb-40">
           <Carousel songs={DATA} />
         </div>
         <div className="right-element absolute right-0 w-2/5 h-[calc(100vh-60px)] overflow-hidden bg-spotifyBlack flex flex-col items-center justify-center pr-10">
