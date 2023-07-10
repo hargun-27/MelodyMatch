@@ -94,39 +94,48 @@ const Profile = () => {
           [
             {
               title: "Acousticness",
-              description: "The acoustic nature of the track from a scale of 0 - 100. A value of 100 represents high confidence in its acoustic classification."
+              description: "The acoustic nature of the track from a scale of 0 - 100. A value of 100 represents high confidence in its acoustic classification.",
+              sliderRange: false,
             },
             {
               title: "Liveness",
-              description: "The liveness value detects the presence of an audience, with higher values indicating a greater likelihood of a live performance."
+              description: "The liveness value detects the presence of an audience, with higher values indicating a greater likelihood of a live performance.",
+              sliderRange: false,
             },
             {
               title: "Danceability",
-              description: "The danceability score rates a track's suitability for dancing on a scale from 0 (least danceable) to 100 (most danceable)."
+              description: "The danceability score rates a track's suitability for dancing on a scale from 0 (least danceable) to 100 (most danceable).",
+              sliderRange: false,
             },
             {
               title: "Instrumentalness",
-              description: "Predicts whether a track contains no vocals. Higher instrumentalness values indicate a greater likelihood of instrumental tracks with minimal or no vocals."
+              description: "Predicts whether a track contains no vocals. Higher instrumentalness values indicate a greater likelihood of instrumental tracks with minimal or no vocals.",
+              sliderRange: false,
             },
             {
               title: "Energy Level",
-              description: "Energy is a perceptual measure of intensity and activity, where higher values indicate tracks that are typically fast, loud, and noisy."
+              description: "Energy is a perceptual measure of intensity and activity, where higher values indicate tracks that are typically fast, loud, and noisy.",
+              sliderRange: false,
             },
             {
               title: "Valence",
-              description: "A measure describing the musical positiveness conveyed by a track. The higher the value, the more positive the song."
+              description: "A measure describing the musical positiveness conveyed by a track. The higher the value, the more positive the song.",
+              sliderRange: false,
             },
             {
               title: "Loudness",
-              description: "The overall loudness of a track in decibels (dB)."
+              description: "The overall loudness of a track in decibels (dB).",
+              sliderRange: false,
             },
             {
               title: "BPM",
-              description: "The overall estimated tempo of a track in beats per minute (BPM)."
+              description: "The overall estimated tempo of a track in beats per minute (BPM).",
+              sliderRange: true,
             },
             {
               title: "Speechiness",
-              description: "Speechiness identifies the presence of spoken words in a track, with higher values indicating more speech-like elements."
+              description: "Speechiness identifies the presence of spoken words in a track, with higher values indicating more speech-like elements.",
+              sliderRange: false,
             },
           ]
         }

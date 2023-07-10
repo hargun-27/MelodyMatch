@@ -7,6 +7,7 @@ import '../components/filtercarousel.css';
 interface FilterCard {
   title: string;
   description: string;
+  sliderRange: boolean;
 }
 
 interface FilterCarouselProps {
@@ -22,6 +23,7 @@ const FilterCarousel: React.FC<FilterCarouselProps> = ({ filterCards }) => {
             <FilterCard
               title={card.title}
               description={card.description}
+              sliderRange={card.sliderRange}
             />
           </div>
         ))}
