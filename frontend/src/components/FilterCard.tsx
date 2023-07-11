@@ -8,7 +8,7 @@ interface FilterCardProps {
   description: string;
   sliderRange: boolean;
   settings: RecommendationOptions;
-  setSettings: React.Dispatch<React.SetStateAction<RecommendationOptions>>
+  setSettings: React.Dispatch<React.SetStateAction<RecommendationOptions>>;
 }
 
 const FilterSlider = styled(Slider)({
@@ -60,20 +60,23 @@ function valueLabelFormat(value: number) {
   return mark ? mark.label : '';
 }
 
-enum titleMap {
-  "BPM"= "target_tempo",
-  "Danceability"= "target_danceability",
-  "Energy Level"= "target_energy",
-  "Loudness"= "target_loudness",
-  "Speechiness"= "target_speechiness",
-  "Acousticness"= "target_acousticness",
-  "Instrumentalness"= "target_instrumentalness",
-  "Liveness"= "target_liveness",
-  "Valence"= "target_valence"
-}
+
+const titleMap: { [key: string]: string; } = {
+  "BPM": "target_tempo",
+  "Danceability": "target_danceability",
+  "Energy Level": "target_energy",
+  "Loudness": "target_loudness",
+  "Speechiness": "target_speechiness",
+  "Acousticness": "target_acousticness",
+  "Instrumentalness": "target_instrumentalness",
+  "Liveness": "target_liveness",
+  "Valence": "target_valence"
+};
 
 
-const FilterCard: React.FC<FilterCardProps> = ({ title, description, sliderRange , settings, setSettings}) => {
+const FilterCard: React.FC<FilterCardProps> = ({ title, description, sliderRange, settings, setSettings }) => {
+  console.log(settings);
+
   return (
     <div className="flex justify-center items-center">
       <div className="w-[700px] h-[500px] bg-black p-4 flex flex-col rounded-2xl justify-evenly mb-36 mt-5">
@@ -81,8 +84,7 @@ const FilterCard: React.FC<FilterCardProps> = ({ title, description, sliderRange
         <p className="text-white mb-2 text-[32px] leading-8 text-center">{description}</p>
         <div className="flex justify-center">
           {sliderRange ? (
-            <FilterSlider        
-              defaultValue={0}
+            <FilterSlider
               aria-label="Always visible"
               valueLabelDisplay="on"
               valueLabelFormat={valueLabelFormat}
@@ -90,16 +92,22 @@ const FilterCard: React.FC<FilterCardProps> = ({ title, description, sliderRange
               step={50}
               min={0}
               max={100}
-              onChange={(event) => {setSettings({...settings, titleMap[title]: event.target.value})}}
+              value={settings[titleMap[title]]}
+              onChange={(event: Event, value) => {
+                setSettings({ ...settings, [titleMap[title]]: value as number });
+              }}
             />
           ) : (
             <FilterSlider
-              defaultValue={0}
               aria-label="Always visible"
               valueLabelDisplay="on"
               step={10}
               min={0}
               max={100}
+              value={settings[titleMap[title]]}
+              onChange={(event: Event, value) => {
+                setSettings({ ...settings, [titleMap[title]]: value as number });
+              }}
             />
           )}
         </div>

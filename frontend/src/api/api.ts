@@ -3,11 +3,22 @@ const prefix = 'https://api.spotify.com/v1/';
 
 export async function getRecommendation(token: string, params: RecommendationOptions): Promise<any> {
   const defaultParams: RecommendationOptions = {
-    target_tempo: '140',
+    target_tempo: 0,
+    target_danceability: 0,
+    target_energy: 0,
+    target_loudness: 0,
+    target_speechiness: 0,
+    target_acousticness: 0,
+    target_instrumentalness: 0,
+    target_liveness: 0,
+    target_valence: 0,
   }
   params = params || defaultParams;
-
-  const reqParams = new URLSearchParams(params).toString();
+  const paramsString: { [keys: string]: string } = {};
+  Object.keys(params).forEach(field => {
+    paramsString[field] = params[field].toString()
+  })
+  const reqParams = new URLSearchParams(paramsString).toString();
   const response = await fetch(`${prefix}recommendations?${reqParams}`, {
     method: "GET", headers: { Authorization: `Bearer ${token}` }
   });

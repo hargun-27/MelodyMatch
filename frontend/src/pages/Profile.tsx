@@ -41,15 +41,15 @@ const Profile = () => {
   });
 
   const [settings, setSettings] = useState<RecommendationOptions>({
-    target_tempo: "",
-    target_danceability: "",
-    target_energy: "",
-    target_loudness: "",
-    target_speechiness: "",
-    target_acousticness: "",
-    target_instrumentalness: "",
-    target_liveness: "",
-    target_valence: "",
+    target_tempo: 0,
+    target_danceability: 0,
+    target_energy: 0,
+    target_loudness: 0,
+    target_speechiness: 0,
+    target_acousticness: 0,
+    target_instrumentalness: 0,
+    target_liveness: 0,
+    target_valence: 0,
   });
 
 
@@ -91,7 +91,7 @@ const Profile = () => {
     console.log("Pressed");
 
     localStorage.setItem("setting", JSON.stringify(settings));
-  }
+  };
 
   return (
     <div>
@@ -115,7 +115,7 @@ const Profile = () => {
         </div>
       </div>
       <div>
-        <FilterCarousel settings = {settings} setSettings = {setSettings} filterCards={
+        <FilterCarousel settings={settings} setSettings={setSettings} filterCards={
           [
             {
               title: "Acousticness",
