@@ -12,6 +12,7 @@ import FilterCarousel from "../components/FilterCarousel";
 import Button from "../components/Button";
 import { getRandomRecommendation } from "../api/api";
 import { RecommendationOptions } from "../api/RecommendationOptions";
+import { useNavigate } from "react-router-dom";
 
 interface Image {
   url: string;
@@ -87,10 +88,12 @@ const Profile = () => {
     fetchData();
   }, []);
 
-  const HandleSubmit = () => {
-    console.log("Pressed");
+  const history = useNavigate();
 
+  const HandleSubmit = () => {
     localStorage.setItem("setting", JSON.stringify(settings));
+    history("/matching");
+
   };
 
   return (

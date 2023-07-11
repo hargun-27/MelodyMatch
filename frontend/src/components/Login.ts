@@ -62,6 +62,8 @@ export async function getAccessToken(code: string) {
   params.append("redirect_uri", redirect_uri);
   params.append("code_verifier", verifier!);
 
+  localStorage.setItem("code", code)
+
   const result = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -79,3 +81,4 @@ export async function fetchProfile(token: string): Promise<any> {
 
   return await result.json();
 }
+

@@ -8,6 +8,7 @@ import ErrorPage from "./pages/Error-Page";
 import Profile from "./pages/Profile";
 import Card from "./components/Card";
 import "./App.css";
+import Matching from "./pages/Matching";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,13 @@ const router = createBrowserRouter([
     path: "/profile",
     element: <Profile />,
     errorElement: <ErrorPage />,
+  }, 
+  {
+    path: "/matching",
+    element: <Matching />,
+    errorElement: <ErrorPage />,
   }
+  
 ]);
 
 function App() {

@@ -75,8 +75,6 @@ const titleMap: { [key: string]: string; } = {
 
 
 const FilterCard: React.FC<FilterCardProps> = ({ title, description, sliderRange, settings, setSettings }) => {
-  console.log(settings);
-
   return (
     <div className="flex justify-center items-center">
       <div className="w-[700px] h-[500px] bg-black p-4 flex flex-col rounded-2xl justify-evenly mb-36 mt-5">
