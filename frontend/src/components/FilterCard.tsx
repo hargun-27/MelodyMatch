@@ -1,11 +1,14 @@
 import React from 'react';
 import Slider from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
+import { RecommendationOptions } from '../api/RecommendationOptions';
 
 interface FilterCardProps {
   title: string;
   description: string;
   sliderRange: boolean;
+  settings: RecommendationOptions;
+  setSettings: React.Dispatch<React.SetStateAction<RecommendationOptions>>
 }
 
 const FilterSlider = styled(Slider)({
@@ -57,7 +60,20 @@ function valueLabelFormat(value: number) {
   return mark ? mark.label : '';
 }
 
-const FilterCard: React.FC<FilterCardProps> = ({ title, description, sliderRange }) => {
+enum titleMap {
+  "BPM"= "target_tempo",
+  "Danceability"= "target_danceability",
+  "Energy Level"= "target_energy",
+  "Loudness"= "target_loudness",
+  "Speechiness"= "target_speechiness",
+  "Acousticness"= "target_acousticness",
+  "Instrumentalness"= "target_instrumentalness",
+  "Liveness"= "target_liveness",
+  "Valence"= "target_valence"
+}
+
+
+const FilterCard: React.FC<FilterCardProps> = ({ title, description, sliderRange , settings, setSettings}) => {
   return (
     <div className="flex justify-center items-center">
       <div className="w-[700px] h-[500px] bg-black p-4 flex flex-col rounded-2xl justify-evenly mb-36 mt-5">
@@ -74,6 +90,7 @@ const FilterCard: React.FC<FilterCardProps> = ({ title, description, sliderRange
               step={50}
               min={0}
               max={100}
+              onChange={(event) => {setSettings({...settings, titleMap[title]: event.target.value})}}
             />
           ) : (
             <FilterSlider

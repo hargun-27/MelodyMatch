@@ -9,6 +9,7 @@ import { get } from "http";
 import FilterCarousel from "../components/FilterCarousel";
 import Button from "../components/Button";
 import { getRandomRecommendation } from "../api/api";
+import { RecommendationOptions } from "../api/RecommendationOptions";
 
 interface Image {
   url: string;
@@ -31,6 +32,19 @@ const Profile = () => {
     images: [{ url: "", height: "", width: "" }],
     product: "",
   });
+
+  const [settings, setSettings] = useState<RecommendationOptions>({
+    target_tempo: "",
+    target_danceability: "",
+    target_energy: "",
+    target_loudness: "",
+    target_speechiness: "",
+    target_acousticness: "",
+    target_instrumentalness: "",
+    target_liveness: "",
+    target_valence: "",
+  });
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,16 +74,16 @@ const Profile = () => {
 
         console.log(rec);
 
-
         console.log("Profile:", profile);
-        console.log(profile.images[0]);
       }
     };
     fetchData();
   }, []);
 
-  const HandleLogin = () => {
+  const HandleSubmit = () => {
     console.log("Pressed");
+
+    localStorage.setItem("setting", JSON.stringify(settings));
   }
 
   return (
@@ -90,7 +104,7 @@ const Profile = () => {
         </div>
       </div>
       <div>
-        <FilterCarousel filterCards={
+        <FilterCarousel settings = {settings} setSettings = {setSettings} filterCards={
           [
             {
               title: "Acousticness",
@@ -143,7 +157,7 @@ const Profile = () => {
       </div>
       <div className="flex items-center justify-center">
         <Button
-          onClick={HandleLogin}
+          onClick={HandleSubmit}
           className="max-w-sm !bg-spotifyBlack text-spotifyWhite text-[24px] font-bold px-12 rounded-xl hover:!bg-spotifyBlackSecondary"
         >
           Generate <span className="text-spotifyGreen">Now</span>
