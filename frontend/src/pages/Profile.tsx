@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { styled } from '@mui/material/styles';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {
   fetchProfile,
   getAccessToken,
@@ -23,6 +25,11 @@ interface Profile {
   images: Image[];
   product: string;
 }
+
+const DefaultAccountCircleIcon = styled(AccountCircleIcon)({
+  width: 80,
+  height: 80,
+});
 
 const Profile = () => {
   const [accessToken, setAccessToken] = useState("");
@@ -90,11 +97,15 @@ const Profile = () => {
     <div>
       <div className="p-6 w-screen">
         <div className="flex items-center bg-transparent p-4">
-          <img
-            className="w-20 h-20 rounded-full mr-4"
-            src={profile.images[0].url}
-            alt="Profile"
-          />
+          {
+            profile.images.length ?
+              <img
+                className="w-20 h-20 rounded-full mr-4"
+                src={profile.images[0].url}
+                alt="Profile"
+              /> :
+              <DefaultAccountCircleIcon className="rounded-full mr-4" />
+          }
           <div className="text-left">
             <p className="font-bold text-3xl capitalize pb-2">{`${profile.display_name}'s Profile`}</p>
             <div className="flex text-xl">
